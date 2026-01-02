@@ -1,47 +1,114 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Richard Top Up</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>RICHARD TOPUP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #00ffcc;
+      margin-bottom: 10px;
+    }
+    .box {
+      max-width: 500px;
+      margin: auto;
+      background: #111;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      background: #25D366;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .price {
+      background: #222;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>RICHARD TOP UP</h1>
 
-        <form action="#" method="post" enctype="multipart/form-data">
-            <!-- Valè diamant -->
-            <label for="diamant">Quelle valeur de diamant voulez-vous?</label>
-            <input type="number" id="diamant" name="diamant" placeholder="Ex: 1000" required>
+<h1>RICHARD TOPUP</h1>
 
-            <!-- Ville -->
-            <label for="ville">Où habitez-vous?</label>
-            <select id="ville" name="ville" required>
-                <option value="">Sélectionnez une ville</option>
-                <option value="Port-au-Prince">Port-au-Prince</option>
-                <option value="Cap-Haïtien">Cap-Haïtien</option>
-                <option value="Les Cayes">Les Cayes</option>
-                <option value="Gonaïves">Gonaïves</option>
-                <option value="Jacmel">Jacmel</option>
-                <option value="Hinche">Hinche</option>
-                <option value="Petit-Goâve">Petit-Goâve</option>
-                <option value="Saint-Marc">Saint-Marc</option>
-            </select>
+<div class="box">
 
-            <!-- Upload screenshot -->
-            <label for="screenshot">Téléversez votre fiche de transaction</label>
-            <input type="file" id="screenshot" name="screenshot" required>
+  <div class="price">
+    <strong>Exemple prix :</strong><br>
+    100 diamonds = 500 HTG<br>
+    310 diamonds = 1500 HTG<br>
+    520 diamonds = 2500 HTG
+  </div>
 
-            <button type="submit">Envoyer</button>
-        </form>
+  <p><strong>Paiement MonCash :</strong> 34343423</p>
 
-        <div class="infos">
-            <p>Numéro MonCash: 34343423</p>
-            <p>Numéro NatCash: 41897721</p>
-        </div>
+  <label>Valè diamonds ou bezwen :</label>
+  <select id="diamonds">
+    <option>100</option>
+    <option>310</option>
+    <option>520</option>
+  </select>
 
-        <p class="message">Après l'envoi, vos diamants seront livrés dans 20 minutes. Merci de patienter!</p>
-    </div>
+  <label>Vil ou :</label>
+  <select id="ville">
+    <option>Port-au-Prince</option>
+    <option>Delmas</option>
+    <option>Pétion-Ville</option>
+    <option>Cap-Haïtien</option>
+    <option>Les Cayes</option>
+    <option>Gonaïves</option>
+    <option>Jacmel</option>
+  </select>
+
+  <button onclick="sendWhatsApp()">Voye info sou WhatsApp</button>
+
+  <p style="margin-top:15px;font-size:14px;">
+    Apre ou fin voye mesaj la, tanpri pran pasyans <strong>20 minit</strong>.
+  </p>
+
+</div>
+
+<script>
+function sendWhatsApp() {
+  var diamonds = document.getElementById("diamonds").value;
+  var ville = document.getElementById("ville").value;
+
+  var message =
+    "Bonjour Richard Topup,%0A" +
+    "Mwen fin peye MonCash.%0A" +
+    "Diamonds: " + diamonds + "%0A" +
+    "Vil: " + ville + "%0A" +
+    "Merci.";
+
+  window.location.href =
+    "https://wa.me/41897721?text=" + message;
+}
+</script>
+
 </body>
 </html>
